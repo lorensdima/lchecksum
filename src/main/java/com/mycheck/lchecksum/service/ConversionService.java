@@ -10,9 +10,10 @@ public class ConversionService {
     public String computeCheckSum(HashMap<String, Object> jsonMap) {
         int sum = 0;
         for(String key: jsonMap.keySet()) {
-            System.out.println(key);
-            for (char c : jsonMap.get(key).toString().toCharArray() ) {
-                sum += (int) c;
+            if (jsonMap.get(key) != null && !key.equals("checksum")) {
+                for (char c : jsonMap.get(key).toString().toCharArray() ) {
+                    sum += (int) c;
+                }
             }
         }
         return  String.format(Locale.ENGLISH, "%03d", sum % 256);
