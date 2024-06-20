@@ -15,6 +15,9 @@ public class RawJson {
     @JsonProperty("age")
     private int age;
 
+    @JsonProperty("checksum")
+    private String checksum;
+
     public RawJson() {
     }
 
